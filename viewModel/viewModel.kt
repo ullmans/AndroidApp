@@ -1,17 +1,17 @@
 package viewModel
 
-import model.Model
+import model
 
-class ViewModel(var m:Model, var aileron: Int, var elevator: Int, var rudder: Int, var throttle: Int,) {
+class ViewModel(m:Model) {
 
-    private var m: Model
+    private var model: Model
     private var aileron: Int = 0
     private var elevator: Int = 0
     private var rudder: Int = 0
     private var throttle: Int = 0
            
     fun setAileron(`val`: Int) {
-       model.setAileron(aileron) 
+       model.setAileron(aileron)
     }
 
     fun setElevator(`val`: Int) {
@@ -28,9 +28,9 @@ class ViewModel(var m:Model, var aileron: Int, var elevator: Int, var rudder: In
 
     init {
         model = m
-//        aileron = findViewById(R.id.aileronBar)
-//        elevator = findViewById(R.id.elevator)
-//        rudder = findViewById(R.id.rudderBar)
-//        throttle = findViewById(R.id.throttleBar)
+        aileron = 0
+        elevator = 0
+        rudder = 0
+        throttle = 0
     }
 }
