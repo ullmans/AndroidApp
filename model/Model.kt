@@ -15,30 +15,6 @@ class Model(ip: String?, port: Int) {
     val funcs: Queue<String> = LinkedBlockingQueue<String>()
     val values: Queue<Int> = LinkedBlockingQueue<Int>()
 
-    thread{
-        while(true){
-            if (!funcs.isEmpty()){
-
-                f = funcs.poll()
-                n = values.poll()
-
-                if(f == "setAileron"){
-                    out.print("set /controls/flight/aileron$`val`\r\n")
-                    out.flush()
-                } else if (f == "setElevator"){
-                    out.print("set /controls/flight/elevator$`val`\r\n")
-                    out.flush()
-                } else if(f == "setRudder"){
-                    out.print("set /controls/flight/rudder$`val`\r\n")
-                    out.flush()
-                } else if (f == "setThrottle"){
-                    out.print("set /controls/engines/current-engine/throttle$`val`\r\n")
-                    out.flush()
-                }
-            }
-        }
-    }
-
     fun setAileron(`val`: Int) {
         funcs.add("setAileron")
         nums.add(`val`)
@@ -70,5 +46,29 @@ class Model(ip: String?, port: Int) {
     init {
         val fg = Socket(ip, port)
         out = PrintWriter(fg.getOutputStream(), true)
+
+        thread{
+            while(true){
+                if (!funcs.isEmpty()){
+
+                    f = funcs.poll()
+                    n = values.poll()
+
+                    if(f == "setAileron"){
+                        out.print("set /controls/flight/aileron$`val`\r\n")
+                        out.flush()
+                    } else if (f == "setElevator"){
+                        out.print("set /controls/flight/elevator$`val`\r\n")
+                        out.flush()
+                    } else if(f == "setRudder"){
+                        out.print("set /controls/flight/rudder$`val`\r\n")
+                        out.flush()
+                    } else if (f == "setThrottle"){
+                        out.print("set /controls/engines/current-engine/throttle$`val`\r\n")
+                        out.flush()
+                    }
+                }
+            }
+        }
     }
 }
