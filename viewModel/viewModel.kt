@@ -27,10 +27,10 @@ class ViewModel(ip: String?, port: Int) {
     }
 
     init {
-        model = Model(ip, port)
-        aileron = 0
-        elevator = 0
-        rudder = 0
-        throttle = 0
+        this.model = Model(ip, port)
+        this.aileron = 0
+        this.elevator = 0
+        this.rudder = 0
+        this.throttle = 0
     }
 }
