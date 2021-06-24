@@ -40,25 +40,29 @@ class Model(ip: String?, port: Int) {
     }
 
     fun setAileron(`val`: Int) {
-        nums.add("setAileron")
+        funcs.add("setAileron")
+        nums.add(`val`)
 //        out.print("set /controls/flight/aileron$`val`\r\n")
 //        out.flush()
     }
 
     fun setElevator(`val`: Int) {
-        nums.add("setElevator")
+        funcs.add("setElevator")
+        nums.add(`val`)
 //        out.print("set /controls/flight/elevator$`val`\r\n")
 //        out.flush()
     }
 
     fun setRudder(`val`: Int) {
-        nums.add("setRudder")
+        funcs.add("setRudder")
+        nums.add(`val`)
 //        out.print("set /controls/flight/rudder$`val`\r\n")
 //        out.flush()
     }
 
     fun setThrottle(`val`: Int) {
-        nums.add("setThrottle")
+        funcs.add("setThrottle")
+        nums.add(`val`)
 //        out.print("set /controls/engines/current-engine/throttle$`val`\r\n")
 //        out.flush()
     }

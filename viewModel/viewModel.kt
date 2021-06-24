@@ -2,13 +2,13 @@ package viewModel
 
 import model
 
-class ViewModel(m:Model) {
+class ViewModel(ip: String?, port: Int) {
 
     private var model: Model
-    private var aileron: Int = 0
-    private var elevator: Int = 0
-    private var rudder: Int = 0
-    private var throttle: Int = 0
+    private var aileron: Int
+    private var elevator: Int
+    private var rudder: Int
+    private var throttle: Int
            
     fun setAileron(`val`: Int) {
        model.setAileron(aileron)
@@ -27,7 +27,7 @@ class ViewModel(m:Model) {
     }
 
     init {
-        model = m
+        model = Model(ip, port)
         aileron = 0
         elevator = 0
         rudder = 0
