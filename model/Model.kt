@@ -9,41 +9,40 @@ import java.util.Queue
 //import java.util.LinkedList
 import java.util.LinkedBlockingQueue
 
-class Model(ip: String?, port: Int) {
+class Model() {
 
     private val out: PrintWriter
-    val funcs: Queue<String> = LinkedBlockingQueue<String>()
-    val values: Queue<Int> = LinkedBlockingQueue<Int>()
+    val funcs: Queue<String>
+    val values: Queue<Int>
+//    val funcs: Queue<String> = LinkedBlockingQueue<String>()
+//    val values: Queue<Int> = LinkedBlockingQueue<Int>()
+
+   init{
+       funcs = LinkedBlockingQueue<String>()
+       values = LinkedBlockingQueue<Int>()
+   }
 
     fun setAileron(`val`: Int) {
         funcs.add("setAileron")
-        nums.add(`val`)
-//        out.print("set /controls/flight/aileron$`val`\r\n")
-//        out.flush()
+        values.add(`val`)
     }
 
     fun setElevator(`val`: Int) {
         funcs.add("setElevator")
-        nums.add(`val`)
-//        out.print("set /controls/flight/elevator$`val`\r\n")
-//        out.flush()
+        values.add(`val`)
     }
 
     fun setRudder(`val`: Int) {
         funcs.add("setRudder")
-        nums.add(`val`)
-//        out.print("set /controls/flight/rudder$`val`\r\n")
-//        out.flush()
+        values.add(`val`)
     }
 
     fun setThrottle(`val`: Int) {
         funcs.add("setThrottle")
-        nums.add(`val`)
-//        out.print("set /controls/engines/current-engine/throttle$`val`\r\n")
-//        out.flush()
+        values.add(`val`)
     }
 
-    init {
+    fun connect(ip: String?, port: Int) {
         val fg = Socket(ip, port)
         out = PrintWriter(fg.getOutputStream(), true)
 
@@ -55,16 +54,16 @@ class Model(ip: String?, port: Int) {
                     n = values.poll()
 
                     if(f == "setAileron"){
-                        out.print("set /controls/flight/aileron$`val`\r\n")
+                        out.write("set /controls/flight/aileron$`val`\r\n")
                         out.flush()
                     } else if (f == "setElevator"){
-                        out.print("set /controls/flight/elevator$`val`\r\n")
+                        out.write("set /controls/flight/elevator$`val`\r\n")
                         out.flush()
                     } else if(f == "setRudder"){
-                        out.print("set /controls/flight/rudder$`val`\r\n")
+                        out.write("set /controls/flight/rudder$`val`\r\n")
                         out.flush()
                     } else if (f == "setThrottle"){
-                        out.print("set /controls/engines/current-engine/throttle$`val`\r\n")
+                        out.write("set /controls/engines/current-engine/throttle$`val`\r\n")
                         out.flush()
                     }
                 }

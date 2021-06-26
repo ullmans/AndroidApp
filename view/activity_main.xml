@@ -7,8 +7,14 @@
     tools:context=".MainActivity">
 
 
+    <data>
+        <variable name="viewModel" type="viewModel.RemoteViewModel"/>
+    </data>
+
+
     <EditText
         android:id="@+id/IP"
+        android:checked="@={viewModel.ip}"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="102dp"
@@ -27,6 +33,7 @@
 
     <EditText
         android:id="@+id/PORT"
+        android:checked="@={viewModel.port}"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -95,6 +102,7 @@
 
     <SeekBar
         android:id="@+id/seekBar"
+        android:checked="@={viewModel.rudder}"
         android:layout_width="290dp"
         android:layout_height="145dp"
         android:layout_marginStart="61dp"
@@ -111,6 +119,7 @@
 
     <SeekBar
         android:id="@+id/seekBar3"
+        android:checked="@={viewModel.throttle}"
         android:layout_width="290dp"
         android:layout_height="145dp"
         android:layout_marginTop="168dp"

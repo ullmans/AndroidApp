@@ -4,6 +4,7 @@ import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
 
+
 class joystick : View() {
 
     private var x = 0.0
@@ -39,6 +40,19 @@ class joystick : View() {
     override fun onTouchEvent(e: MotionEvent): Boolean {
         this.x = e.x.toDouble()
         this.y = e.y.toDouble()
+        //need a lambda expression here to change the values of the rudder and the throttle in the view model
+//        fun(x: Double, y: Double): Void {
+//            viewModel.rudder=x
+//            viewModel.throttle=y
+//        }
         return true;
     }
+}
+
+
+//    @javaCode
+//    joystick.onChange=(a,e)->{
+//        viewModel.setAileron(a)
+//        viewModel.setElevator(e)
+//    }
 }
