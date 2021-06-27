@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--1-->
+    <declare-styleable name="Joystick">
+
+        <attr name="base" format="color" />
+        <attr name="moves" format="color" />
+    </declare-styleable>
+</resources>
