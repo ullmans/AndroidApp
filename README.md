@@ -31,7 +31,7 @@ The view is complex from IP and PORT windows, joystick, rudder and throttle.
 The view listen to the joystick, rudder and throttle, and when it change he sent to the viewmodel.
 
 ## Explanation video of how to use the site:
-Click this link (...) for a tutorial video on how to use the app
+Click this link (https://youtu.be/hOf5rRjUjlQ) for a tutorial video on how to use the app
 
 ## UML diagram:
-You can find  a UML diagram of our project at the following link: ...
+You can find  a UML diagram of our project at the following link: https://github.com/ullmans/AndroidApp/blob/main/UML_ex3.pdf
