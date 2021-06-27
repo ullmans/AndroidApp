@@ -1,6 +1,5 @@
 package com.example.ex32.model
 
-import android.util.Log
 import java.io.PrintWriter
 import java.net.Socket
 
@@ -18,25 +17,21 @@ class Model(ip: String?, port: Int) {
     val nums: Queue<Double> = LinkedBlockingQueue<Double>()
 
     fun setAileron(`val`: Double) {
-        Log.d("model", "aileron $`val`")
         funcs.add("setAileron")
         nums.add(`val`)
     }
 
     fun setElevator(`val`: Double) {
-        Log.d("model", "elevator $`val`")
         funcs.add("setElevator")
         nums.add(`val`)
     }
 
     fun setRudder(`val`: Double) {
-        Log.d("model", "rudder $`val`")
         funcs.add("setRudder")
         nums.add(`val`)
     }
 
     fun setThrottle(`val`: Double) {
-        Log.d("model", "throttle $`val`")
         funcs.add("setThrottle")
         nums.add(`val`)
     }
